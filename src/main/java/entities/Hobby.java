@@ -20,7 +20,7 @@ public class Hobby implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "hid")
-    private Long hid;
+    private int hid;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
@@ -30,11 +30,11 @@ public class Hobby implements Serializable {
         //Empty constructor
     }
     
-    public Long getHid() {
+    public int getHid() {
         return hid;
     }
 
-    public void setHid(Long hid) {
+    public void setHid(int hid) {
         this.hid = hid;
     }
 
@@ -52,6 +52,11 @@ public class Hobby implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Hobby{" + "hid=" + hid + ", name=" + name + ", description=" + description + '}';
     }
     
 }

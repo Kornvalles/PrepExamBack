@@ -2,6 +2,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +34,7 @@ public class Address implements Serializable {
     
     //Relations
     @OneToMany(mappedBy = "address", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-    private List<Person> persons;
+    private Set<Person> persons;
 
     public Long getId() {
         return id;
@@ -67,11 +68,11 @@ public class Address implements Serializable {
         this.zipcode = zipcode;
     }
 
-    public List<Person> getPersons() {
+    public Set<Person> getPersons() {
         return persons;
     }
 
-    public void setPersons(List<Person> persons) {
+    public void setPersons(Set<Person> persons) {
         this.persons = persons;
     }
     

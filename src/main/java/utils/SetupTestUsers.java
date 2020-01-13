@@ -7,7 +7,9 @@ import entities.Person;
 import entities.Role;
 import entities.User;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -34,7 +36,7 @@ public class SetupTestUsers {
 
     em.getTransaction().begin();
     
-    List<Person> persons = new ArrayList();
+    Set<Person> persons = new HashSet();
     
     Person person1 = new Person();
     person1.setFirstName("Mikkel");
@@ -48,8 +50,8 @@ public class SetupTestUsers {
     person2.setEmail("nicoline@mail.dk");
     person2.setPhone("52409489");
     
-    //persons.add(person1);
-    //persons.add(person2);
+    persons.add(person1);
+    persons.add(person2);
     
     Address address = new Address();
     address.setCity("Lyngby");
@@ -72,7 +74,7 @@ public class SetupTestUsers {
     hobbies.add(hobby2);
     
     person1.setHobbies(hobbies);
-    //address.setPersons(persons);
+    address.setPersons(persons);
     
     em.persist(hobby1);
     em.persist(hobby2);
